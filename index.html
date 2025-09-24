@@ -1,97 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mini E-Commerce</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary d-none" id="mainNavbar">
-    <div class="container">
-      <a class="navbar-brand" href="#">Mini E-Commerce</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#" data-page="home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-page="products">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-page="add">Add Product</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-page="about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" id="logoutBtn">Logout</a></li>
-        </ul>
-      </div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark custom-nav d-none" id="mainNavbar">
+  <div class="container-fluid d-flex justify-content-between">
+    <a class="navbar-brand" href="#">Mini E-Commerce</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#" data-page="home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-page="products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-page="add">Add Product</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-page="about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" id="logoutBtn">Logout</a></li>
+      </ul>
     </div>
-  </nav>
-  <section id="loginSection" class="d-flex justify-content-center align-items-center vh-100 bg-light">
-    <div class="card p-4 shadow" style="width: 350px;">
-      <h3 class="mb-3 text-center">Login</h3>
-      <form id="loginForm">
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email" />
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Password" />
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Login</button>
-      </form>
+  </div>
+</nav>
+
+<!-- Login -->
+<section id="loginSection" class="container mt-5">
+  <h2 class="text-center mb-4">Login</h2>
+  <form id="loginForm" class="w-50 mx-auto">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" required>
     </div>
-  </section>
-
-
-  <section id="homeSection" class="container mt-4 d-none">
-    <h2>Welcome to Mini E-Commerce</h2>
-    
-    <div class="swiper mySwiper mt-4">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="photo-1510557880182-3d4d3cba35a5.jpg" class="img-fluid"></div>
-        <div class="swiper-slide"><img src="photo-1518770660439-4636190af475.jpg" class="img-fluid"></div>
-        <div class="swiper-slide"><img src="photo-1542831371-d531d36971e6.jpg" class="img-fluid"></div>
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" required>
     </div>
-  </section>
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+  </form>
+</section>
 
-  <section id="productsSection" class="container mt-4 d-none">
-    <h2>Products</h2>
-    <div id="productsContainer" class="row gy-3"></div>
-  </section>
+<!-- Home -->
+<section id="homeSection" class="container-fluid d-none">
+  <div class="text-center mb-5">
+    <h1>Welcome to Mini E-Commerce</h1>
+    <p>Shop the latest products!</p>
+  </div>
 
-  <section id="addSection" class="container mt-4 d-none" style="max-width: 600px;">
-    <h2>Add New Product</h2>
-    <form id="addProductForm" novalidate>
-      <div class="mb-3">
-        <label for="productName" class="form-label">Product Name</label>
-        <input type="text" class="form-control" id="productName" required />
-      </div>
-      <div class="mb-3">
-        <label for="productPrice" class="form-label">Price ($)</label>
-        <input type="number" class="form-control" id="productPrice" min="0.01" step="0.01" required />
-      </div>
-      <div class="mb-3">
-        <label for="productImage" class="form-label">Image URL</label>
-        <input type="url" class="form-control" id="productImage" placeholder="https://example.com/image.jpg" required />
-      </div>
-      <button type="submit" class="btn btn-success">Add Product</button>
-    </form>
-  </section>
+  <!-- Slider -->
+  <div class="swiper mySwiper mb-5" id="homeSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=400&fit=crop" class="img-fluid w-100" alt="Slide 1"></div>
+      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&h=400&fit=crop" class="img-fluid w-100" alt="Slide 2"></div>
+      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=400&fit=crop" class="img-fluid w-100" alt="Slide 3"></div>
+    </div>
+  </div>
 
-  <section id="aboutSection" class="container mt-4 d-none">
-    <h2>About This Project</h2>
-    <p>This Mini E-Commerce Website is built using HTML, CSS, JavaScript, Bootstrap, SwiperJS, and SweetAlert. It demonstrates basic e-commerce functionalities such as login, product listing, adding and removing products, and navigation between pages.</p>
-  </section>
+  <!-- Categories -->
+  <div class="text-center my-5">
+    <h2>Shop by Category</h2>
+    <div class="row mt-4">
+      <div class="col-md-3"><div class="p-4 bg-light shadow rounded">Laptops</div></div>
+      <div class="col-md-3"><div class="p-4 bg-light shadow rounded">Phones</div></div>
+      <div class="col-md-3"><div class="p-4 bg-light shadow rounded">Headphones</div></div>
+      <div class="col-md-3"><div class="p-4 bg-light shadow rounded">Cameras</div></div>
+    </div>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
+  <!-- Featured Products -->
+  <div class="mt-5">
+    <h2>Latest Products</h2>
+    <div id="homeProductsContainer" class="row gy-3"></div>
+  </div>
+
+  <!-- Special Offers -->
+  <div class="mt-5 text-center">
+    <h2>Special Offers</h2>
+    <div class="row mt-4">
+      <div class="col-md-4"><div class="p-4 bg-warning text-white shadow rounded">🔥 20% Off Laptops</div></div>
+      <div class="col-md-4"><div class="p-4 bg-danger text-white shadow rounded">🔥 15% Off Phones</div></div>
+      <div class="col-md-4"><div class="p-4 bg-success text-white shadow rounded">🔥 Free Shipping</div></div>
+    </div>
+  </div>
+
+  <!-- Brands -->
+  <div class="mt-5 text-center">
+    <h2>Our Brands</h2>
+    <div class="row mt-4">
+      <div class="col-md-2"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="img-fluid" alt="Apple"></div>
+      <div class="col-md-2"><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" class="img-fluid" alt="Samsung"></div>
+      <div class="col-md-2"><img src="HP_logo_2025.svg" class="img-fluid" alt="HP"></div>
+      <div class="col-md-2"><img src="Dell_Logo.svg.png" class="img-fluid" alt="Dell"></div>
+      <div class="col-md-2"><img src="canon-press-centre-canon-logo_301414581785538.png" class="img-fluid" alt="canon"></div>
+      <div class="col-md-2"><img src="Huawei-Logo-2006.png" class="img-fluid" alt=""Huawi></div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- Products -->
+<section id="productsSection" class="container-fluid d-none">
+  <h2>All Products</h2>
+  <div id="productsContainer" class="row gy-3"></div>
+</section>
+
+<!-- Add Product -->
+<section id="addSection" class="container-fluid d-none">
+  <h2>Add Product</h2>
+  <form id="addProductForm" class="row g-3">
+    <div class="col-md-4">
+      <label>Name</label>
+      <input type="text" id="productName" class="form-control" required>
+    </div>
+    <div class="col-md-4">
+      <label>Price</label>
+      <input type="number" id="productPrice" class="form-control" required>
+    </div>
+    <div class="col-md-4">
+      <label>Image URL</label>
+      <input type="text" id="productImage" class="form-control" required>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-success">Add</button>
+    </div>
+  </form>
+</section>
+
+<!-- About -->
+<section id="aboutSection" class="container-fluid d-none">
+  <h2>About Us</h2>
+  <p>We are a demo e-commerce platform created for learning purposes.</p>
+  <div class="mt-5">
+    <h2>Our Products</h2>
+    <div id="aboutProductsContainer" class="row gy-3"></div>
+  </div>
+</section>
+
+<footer>
+  <p class="mb-0">© 2025 Mini E-Commerce | All rights reserved</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
