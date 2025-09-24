@@ -2,12 +2,55 @@ body {
   font-family: Arial, sans-serif;
 }
 
-#mainNavbar .nav-link.active {
-  font-weight: bold;
-  text-decoration: underline;
+section {
+  min-height: 100vh;
+  padding: 100px 0;
+  margin-top: 80px; 
 }
 
-.card img {
-  max-height: 200px;
-  object-fit: cover;
+#homeSection { background: #fff; }
+#productsSection { background: #f9f9f9; }
+#addSection { background: #fff; }
+#aboutSection { background: #f1f1f1; }
+
+.mySwiper {
+  height: 500px;
 }
+
+.card {
+  margin-bottom: 30px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.custom-nav, footer {
+  background-color: #141316;
+  color: white;
+}
+
+footer {
+  padding: 20px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .mySwiper {
+    height: 300px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+}
+
+
