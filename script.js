@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const addProductForm = document.getElementById("addProductForm");
   const addProductModal = new bootstrap.Modal(document.getElementById("addProductModal"));
 
-  // إزالة منتج عند الضغط على زر Remove
   productList.addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-btn")) {
       const card = e.target.closest(".product-card");
@@ -17,11 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // إضافة منتج جديد عند إرسال الفورم
   addProductForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // جلب القيم من الفورم
+  
     const name = document.getElementById("productName").value.trim();
     const priceInput = document.getElementById("productPrice").value;
     const price = parseFloat(priceInput).toFixed(2);
@@ -32,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // إنشاء عنصر المنتج الجديد
     const colDiv = document.createElement("div");
     colDiv.className = "col-12 col-sm-6 col-md-4";
 
@@ -48,15 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
     `;
-
-    // أضف المنتج للقائمة
     productList.appendChild(colDiv);
-
-    // إغلاق المودال
     addProductModal.hide();
-
-    // إعادة تعيين الفورم
     addProductForm.reset();
   });
 });
+
 
