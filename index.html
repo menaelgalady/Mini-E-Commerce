@@ -1,153 +1,367 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <title>Mini E-Commerce</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="header container-fluid">
+    <div class="d-flex justify-content-between align-items-center py-2">
+      <div class="logo">Mini E-Commerce</div>
+      <nav class="navbar">
+        <ul class="d-flex list-unstyled mb-0">
+          <li class="mx-2"><a href="#home">Home</a></li>
+          <li class="mx-2"><a href="#about">About</a></li>
+          <li class="mx-2"><a href="#productsSection">Product</a></li>
+          <li class="mx-2"><a href="#" data-bs-toggle="modal" data-bs-target="#addProductModal">Add product</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="btn sign-up">Logout</a>
+    </div>
+  </header>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark custom-nav d-none" id="mainNavbar">
-  <div class="container-fluid d-flex justify-content-between">
-    <a class="navbar-brand" href="#">Mini E-Commerce</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#" data-page="home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" data-page="products">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" data-page="add">Add Product</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" data-page="about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" id="logoutBtn">Logout</a></li>
-      </ul>
+  <main>
+    <section id="home" class="hero-section">
+      <div class="hero-content container">
+        <h1 class="fw-bold">Welcome to Mini E-Commerce WEBSITE</h1>
+        <p class="lead">Shop laptops, phones, smartwatches, and more with the best deals!</p>
+      </div>
+    </section>
+
+    <section id="about" class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-6 mb-4 mb-md-0">
+            <img src="Electronics devices.jpg" class="img-fluid rounded shadow" alt="Electronics devices" />
+          </div>
+          <div class="col-12 col-md-6">
+            <h2 class="fw-bold mb-3">About Us</h2>
+            <p class="text-muted">
+              Welcome to <strong>Mini E-Commerce</strong>, your one-stop shop for the latest in consumer electronics.
+              We specialize in providing top-quality smartphones, laptops, cameras, AirPods, Apple Watches, and more.
+            </p>
+            <p class="text-muted">
+              Founded on the principles of innovation and reliability, our mission is to bring you cutting-edge tech products with exceptional service.
+              We believe in offering genuine products, competitive prices, and a seamless shopping experience.
+            </p>
+            <p class="text-muted">
+              Whether you’re after the newest flagship phone, a sleek laptop, a powerful camera, or premium audio gear,
+              we’ve got you covered. Let us help you stay connected, capture moments, and live smarter with technology.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div id="carouselExample" class="carousel slide container" data-bs-ride="carousel">
+        <div class="carousel-inner rounded shadow">
+          <div class="carousel-item active">
+            <img src="laptop1.jpg" class="d-block w-100" alt="Laptop" />
+          </div>
+          <div class="carousel-item">
+            <img src="phone2.jpg" class="d-block w-100" alt="Phone" />
+          </div>
+          <div class="carousel-item">
+            <img src="camr.jpg" class="d-block w-100" alt="Camera" />
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+   <section id="productsSection" class="py-5">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h2 class="products-heading">Products</h2>
+          </div>
+        </div>
+
+        <div class="row g-4" id="productList">
+          <div class="col-sm-6 col-md-4">
+            <div class="card product-card h-100 shadow-sm">
+              <img src="phone2.jpg" class="card-img-top" alt="Phone">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Samsung</h5>
+                <p class="price mb-3">$499</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <button class="btn btn-danger btn-sm remove-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="card product-card h-100 shadow-sm">
+              <img src="macbook.jpg" class="card-img-top" alt="Laptop">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Mackbook</h5>
+                <p class="price mb-3">$1199</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <button class="btn btn-danger btn-sm remove-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="card product-card h-100 shadow-sm">
+              <img src="airpods.jpg" class="card-img-top" alt="AirPods">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">AirPods</h5>
+                <p class="price mb-3">$199</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <button class="btn btn-danger btn-sm remove-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="card product-card h-100 shadow-sm">
+              <img src="cam.jpg" class="card-img-top" alt="Camera">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Mirrorless Camera</h5>
+                <p class="price mb-3">$799</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <button class="btn btn-danger btn-sm remove-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="card product-card h-100 shadow-sm">
+              <img src="tab.jpg" class="card-img-top" alt="Camera">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Tablet</h5>
+                <p class="price mb-3">$799</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <button class="btn btn-danger btn-sm remove-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="col-sm-6 col-md-4">
+  <div class="card product-card h-100 shadow-sm">
+    <img src="apple watch.jpg" class="card-img-top" alt="Apple Watch">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Apple Watch</h5>
+      <p class="price mb-3">$299</p>
+      <div class="mt-auto d-flex justify-content-between align-items-center">
+        <button class="btn btn-danger btn-sm remove-btn">Remove</button>
+      </div>
     </div>
   </div>
-</nav>
+</div>
 
-<!-- Login -->
-<section id="loginSection" class="container mt-5">
-  <h2 class="text-center mb-4">Login</h2>
-  <form id="loginForm" class="w-50 mx-auto">
-    <div class="mb-3">
-      <label for="username" class="form-label">Username</label>
-      <input type="text" class="form-control" id="username" required>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" required>
-    </div>
-    <button type="submit" class="btn btn-primary w-100">Login</button>
-  </form>
-</section>
-
-<!-- Home -->
-<section id="homeSection" class="container-fluid d-none">
-  <div class="text-center mb-5">
-    <h1>Welcome to Mini E-Commerce</h1>
-    <p>Shop the latest products!</p>
-  </div>
-
-  <!-- Slider -->
-  <div class="swiper mySwiper mb-5" id="homeSwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=400&fit=crop" class="img-fluid w-100" alt="Slide 1"></div>
-      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&h=400&fit=crop" class="img-fluid w-100" alt="Slide 2"></div>
-      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=400&fit=crop" class="img-fluid w-100" alt="Slide 3"></div>
+<div class="col-sm-6 col-md-4">
+  <div class="card product-card h-100 shadow-sm">
+    <img src="headphones.jpg" class="card-img-top" alt="Headphones">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Headphones</h5>
+      <p class="price mb-3">$129</p>
+      <div class="mt-auto d-flex justify-content-between align-items-center">
+        <button class="btn btn-danger btn-sm remove-btn">Remove</button>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- Categories -->
-  <div class="text-center my-5">
-    <h2>Shop by Category</h2>
-    <div class="row mt-4">
-      <div class="col-md-3"><div class="p-4 bg-light shadow rounded">Laptops</div></div>
-      <div class="col-md-3"><div class="p-4 bg-light shadow rounded">Phones</div></div>
-      <div class="col-md-3"><div class="p-4 bg-light shadow rounded">Headphones</div></div>
-      <div class="col-md-3"><div class="p-4 bg-light shadow rounded">Cameras</div></div>
+<div class="col-sm-6 col-md-4">
+  <div class="card product-card h-100 shadow-sm">
+    <img src="power bank.jpg" class="card-img-top" alt="Power Bank">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Power Bank</h5>
+      <p class="price mb-3">$49</p>
+      <div class="mt-auto d-flex justify-content-between align-items-center">
+        <button class="btn btn-danger btn-sm remove-btn">Remove</button>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- Featured Products -->
-  <div class="mt-5">
-    <h2>Latest Products</h2>
-    <div id="homeProductsContainer" class="row gy-3"></div>
-  </div>
+        </div> 
+      </div>
+    </section>
+    <section id="services" class="py-5 bg-light">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h2 class="section-heading">Our Services</h2>
+            <p class="text-muted">We provide high-quality electronics with the best customer care.</p>
+          </div>
+        </div>
 
-  <!-- Special Offers -->
-  <div class="mt-5 text-center">
-    <h2>Special Offers</h2>
-    <div class="row mt-4">
-      <div class="col-md-4"><div class="p-4 bg-warning text-white shadow rounded">🔥 20% Off Laptops</div></div>
-      <div class="col-md-4"><div class="p-4 bg-danger text-white shadow rounded">🔥 15% Off Phones</div></div>
-      <div class="col-md-4"><div class="p-4 bg-success text-white shadow rounded">🔥 Free Shipping</div></div>
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="card h-100 text-center shadow-sm service-card">
+              <div class="card-body">
+                <i class="bi bi-truck fs-1 text-primary mb-3"></i>
+                <h2 class="card-title">Fast Delivery</h2>
+                <p class="card-text">We deliver products quickly and safely to your door.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 text-center shadow-sm service-card">
+              <div class="card-body">
+                <i class="bi bi-shield-check fs-1 text-success mb-3"></i>
+                <h2 class="card-title">Warranty</h2>
+                <p class="card-text">All products come with a genuine warranty for peace of mind.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 text-center shadow-sm service-card">
+              <div class="card-body">
+                <i class="bi bi-cash-coin fs-1 text-warning mb-3"></i>
+                <h2 class="card-title">Best Prices</h2>
+                <p class="card-text">Get the latest electronics at the most competitive prices.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sale" class="py-5 bg-danger text-white">
+      <div class="container text-center">
+        <h2 class="sale-heading mb-3">🔥 Big Sale is On!</h2>
+        <p class="lead mb-4">Get up to <span class="fw-bold">50% OFF</span> on selected electronics this week only.</p>
+        <a href="#productsSection" class="btn btn-light btn-lg">Shop Now</a>
+      </div>
+    </section>
+
+    
+    <section id="brands" class="py-5 bg-light">
+      <div class="container text-center">
+        <h2 class="section-heading mb-4">Our Brands</h2>
+        <div class="row g-4 justify-content-center align-items-center">
+          <div class="col-4 col-md-2">
+            <img src="apple logo transparent.jpg" class="img-fluid brand-logo" alt="Apple" />
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="samsung logo transparent.jpg" class="img-fluid brand-logo" alt="Samsung" />
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="hp logo transparent.jpg" class="img-fluid brand-logo" alt="HP" />
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="dell logo transparent.jpg" class="img-fluid brand-logo" alt="Dell" />
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="canon logo transparent.jpg" class="img-fluid brand-logo" alt="Canon" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-heading">Contact Us</h2>
+          <p class="text-muted">Feel free to get in touch with us anytime.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-5">
+            <h5>Our Contact Info</h5>
+            <p><strong>Phone:</strong> +20 111 111 111</p>
+            <p><strong>Email:</strong> info@electronics.com</p>
+            <p><strong>Address:</strong> Mansoura, Egypt</p>
+            <div class="mt-3">
+              <a href="#" class="me-3"><i class="bi bi-facebook fs-3"></i></a>
+              <a href="#" class="me-3"><i class="bi bi-instagram fs-3"></i></a>
+              <a href="#"><i class="bi bi-whatsapp fs-3"></i></a>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-7">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Write your message"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="addProductForm" class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="productName" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="productName" required />
+            </div>
+            <div class="mb-3">
+              <label for="productPrice" class="form-label">Price (USD)</label>
+              <input type="number" class="form-control" id="productPrice" min="0" step="0.01" required />
+            </div>
+            <div class="mb-3">
+              <label for="productImage" class="form-label">Image URL</label>
+              <input type="url" class="form-control" id="productImage" placeholder="https://example.com/image.jpg" required />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add Product</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <!-- Brands -->
-  <div class="mt-5 text-center">
-    <h2>Our Brands</h2>
-    <div class="row mt-4">
-      <div class="col-md-2"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="img-fluid" alt="Apple"></div>
-      <div class="col-md-2"><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" class="img-fluid" alt="Samsung"></div>
-      <div class="col-md-2"><img src="HP_logo_2025.svg" class="img-fluid" alt="HP"></div>
-      <div class="col-md-2"><img src="Dell_Logo.svg.png" class="img-fluid" alt="Dell"></div>
-      <div class="col-md-2"><img src="canon-press-centre-canon-logo_301414581785538.png" class="img-fluid" alt="canon"></div>
-      <div class="col-md-2"><img src="Huawei-Logo-2006.png" class="img-fluid" alt=""Huawi></div>
+  </main>
+
+  <footer class="bg-dark text-light py-4">
+    <div class="container text-center">
+      <h5 class="mb-3">Electronics Store</h5>
+      <div class="mb-3">
+        <a href="#home" class="text-light mx-2 text-decoration-none">Home</a>
+        <a href="#about" class="text-light mx-2 text-decoration-none">About</a>
+        <a href="#productsSection" class="text-light mx-2 text-decoration-none">Products</a>
+        <a href="#contact" class="text-light mx-2 text-decoration-none">Contact</a>
+      </div>
+      <div class="mb-3">
+        <a href="https://www.facebook.com/share/17NifVA78w/" target="_blank" class="text-light mx-2"><i class="bi bi-facebook fs-5"></i></a>
+        <a href="https://www.instagram.com/mena_elgalady?igsh=M2V6Y3VlaXU5ajA3" target="_blank" class="text-light mx-2"><i class="bi bi-instagram fs-5"></i></a>
+        <a href="https://x.com/_MeNna11?t=UsXUjbNq32HGzzFwO2QPOA&s=09" target="_blank" class="text-light mx-2"><i class="bi bi-twitter fs-5"></i></a>
+      </div>
+      <p class="mb-0">© 2025 Electronics Store. All Rights Reserved.</p>
     </div>
-  </div>
+  </footer>
 
-
-</section>
-
-<!-- Products -->
-<section id="productsSection" class="container-fluid d-none">
-  <h2>All Products</h2>
-  <div id="productsContainer" class="row gy-3"></div>
-</section>
-
-<!-- Add Product -->
-<section id="addSection" class="container-fluid d-none">
-  <h2>Add Product</h2>
-  <form id="addProductForm" class="row g-3">
-    <div class="col-md-4">
-      <label>Name</label>
-      <input type="text" id="productName" class="form-control" required>
-    </div>
-    <div class="col-md-4">
-      <label>Price</label>
-      <input type="number" id="productPrice" class="form-control" required>
-    </div>
-    <div class="col-md-4">
-      <label>Image URL</label>
-      <input type="text" id="productImage" class="form-control" required>
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-success">Add</button>
-    </div>
-  </form>
-</section>
-
-<!-- About -->
-<section id="aboutSection" class="container-fluid d-none">
-  <h2>About Us</h2>
-  <p>We are a demo e-commerce platform created for learning purposes.</p>
-  <div class="mt-5">
-    <h2>Our Products</h2>
-    <div id="aboutProductsContainer" class="row gy-3"></div>
-  </div>
-</section>
-
-<footer>
-  <p class="mb-0">© 2025 Mini E-Commerce | All rights reserved</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
